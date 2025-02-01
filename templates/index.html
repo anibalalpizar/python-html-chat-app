@@ -7,6 +7,9 @@
     <title>
         Python HTML Chat App
     </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js"
+        integrity="sha512-luMnTJZ7oEchNDZAtQhgjomP1eZefnl82ruTH/3Oj/Yu5qYtwL7+dVRccACS/Snp1lFXq188XFipHKYE75IaQQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
         :root {
             --primary-color: #4a90e2;
@@ -162,6 +165,7 @@
     <div class="chat-container">
         <div class="chat-header"></div>
         <div class="username-container">
+            <span id="current-username"></span>
             <input type="text" id="username" placeholder="Enter your username">
             <button id="update-username-button">Update</button>
         </div>
@@ -171,6 +175,16 @@
             <button id="send-button">Send</button>
         </div>
     </div>
+    <script>
+        const socket = io()
+        const chatMesages = document.getElementById('chat-messages')
+        const chatInput = document.getElementById('chat-input')
+        const sendButton = document.getElementById('send-button')
+        const currentUserName = document.getElementById('current-username')
+        const userNameInput = document.getElementById('username')
+        const updateUserNameButton = document.getElementById('update-username-button')
+
+    </script>
 </body>
 
 </html>
