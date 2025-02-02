@@ -221,9 +221,25 @@
         updateUserNameButton.addEventListener('click', updateUsername())
 
 
-        function sendMessage() { }
-        function addMessage() { }
-        function updateUsername() { }
+        function sendMessage() {
+            const message = chatInput.value.trim()
+            if (message) {
+                socket.emit('new_message', { message })
+                chatInput.value = ''
+            }
+        }
+
+        function addMessage(message, type, username = '', avatar = '') {
+
+        }
+
+        function updateUsername() {
+            const newUsername = userNameInput.value.trim()
+            if (newUsername && newUsername !== currentUsername) {
+                socket.emit('change_username', { newUsername })
+                userNameInput.value = ''
+            }
+        }
 
 
 
